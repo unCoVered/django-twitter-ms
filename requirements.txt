@@ -1,2 +1,6 @@
 Django==3.1.7
 djangorestframework==3.12.4
+python-decouple==3.4
+pytest==6.2.3
+pytest-mock==3.5.1
+django-mock-rest==1.3
