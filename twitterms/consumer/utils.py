@@ -15,9 +15,9 @@ def create_headers():
     headers = {"Authorization": "Bearer {}".format(TWITTER_BEARER_TOKEN)}
     return headers
 
-def create_tweets_url():
+def create_tweets_resource_url():
     return TWITTER_API_ENDPOINT + TWITTER_API_TWEETS
 
-def create_users_url():
+def create_users_resource_url():
     return TWITTER_API_ENDPOINT + TWITTER_API_USERS
 
