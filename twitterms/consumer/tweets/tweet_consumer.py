@@ -1,6 +1,7 @@
+import requests
 from .. import utils
 
-def get_tweet(requests, tweet_id):
+def get_tweet(tweet_id):
     url = utils.create_tweets_resource_url() + tweet_id
     response = requests.request('GET', url, headers=utils.create_headers())
 
@@ -13,7 +14,7 @@ def get_tweet(requests, tweet_id):
 
     return response.json()
 
-def get_user_timeline(requests, user_id):
+def get_user_timeline(user_id):
     url = utils.create_users_resource_url() + user_id + '/tweets'
     response = requests.request('GET', url, headers=utils.create_headers())
 

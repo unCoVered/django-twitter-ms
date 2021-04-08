@@ -1,13 +1,21 @@
-from django.shortcuts import render
-import requests
+from django.shortcuts import render, get_object_or_404
+from .tweets import tweet_consumer
+from .users import user_consumer
 
-def home(request):
-    response = requests.get('http://freegeoip.net/json/')
-    geodata = response.json()
 
-    print(response)
+def tweet(request, tweet_id):
+    response = tweet_consumer.get_tweet(tweet_id)
 
-    return render(request, 'core/home.html', {
-        'ip': geodata['ip'],
-        'country': geodata['country_name']
-    })
+    return render(request, response.json())
+
+
+def user_timeline(request, user_id):
+    response = tweet_consumer.get_user_timeline(user_id)
+
+    return render(request, response.json())
+
+
+def user(request, user_id):
+    response = user_consumer.get_user(user_id)
+
+    return render(request, response.json())
